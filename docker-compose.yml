@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_FILE=/data/signals.db
+      - DEMO_MODE=true
+    volumes:
+      - app_data:/data
+    depends_on: []
+
+volumes:
+  app_data:
